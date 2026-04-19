@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-app-bg: #0A0A0A;
+  --color-app-surface: #141414;
+  --color-app-accent: #FFB800;
+  --color-app-border: #222222;
+  --color-app-text-dim: #888888;
+}
+
+@layer base {
+  body {
+    @apply bg-app-bg text-white font-sans antialiased;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .sidebar-panel {
+    @apply bg-app-surface border-r border-app-border h-full p-8 flex flex-col gap-6;
+  }
+
+  .content-panel {
+    @apply p-10 flex flex-col gap-6 h-full overflow-y-auto;
+  }
+
+  .input-label {
+    @apply text-[10px] uppercase tracking-wider font-bold text-app-text-dim mb-2 block;
+  }
+
+  .tech-input {
+    @apply w-full bg-black border border-app-border rounded px-4 py-3 text-sm focus:outline-none focus:border-app-accent focus:ring-1 focus:ring-app-accent/20 transition-all text-white placeholder:text-white/10;
+  }
+
+  .btn-primary {
+    @apply bg-app-accent text-black font-black uppercase tracking-wider py-4 rounded transition-all hover:brightness-110 active:scale-[0.98] disabled:opacity-50;
+  }
+
+  .badge-tech {
+    @apply text-[10px] font-mono py-1.5 px-3 border border-app-border rounded text-app-text-dim text-center uppercase tracking-tight;
+  }
+
+  .json-card {
+    @apply bg-black border border-app-border rounded-lg p-6 font-mono text-sm leading-relaxed overflow-hidden relative;
+  }
+
+  .json-card::after {
+    content: "ENGINEER_LOG_V2.0";
+    @apply absolute top-3 right-4 text-[9px] text-app-text-dim font-mono;
+  }
+}
+
